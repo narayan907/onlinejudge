@@ -12,4 +12,15 @@ public class RestExceptionHandler {
     protected ResponseEntity<Object> handleUserAlreadyRegistered(RuntimeException ex, WebRequest request) {
         return new ResponseEntity(ex.getMessage(), new HttpHeaders(), HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(TokenNotPresent.class)
+    protected ResponseEntity<Object> handleInvalidVerificationToken(RuntimeException ex, WebRequest request) {
+        return new ResponseEntity(ex.getMessage(), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    protected ResponseEntity<Object> userNotFound(RuntimeException ex, WebRequest request) {
+        return new ResponseEntity(ex.getMessage(), new HttpHeaders(), HttpStatus.NOT_FOUND);
+    }
+
 }
