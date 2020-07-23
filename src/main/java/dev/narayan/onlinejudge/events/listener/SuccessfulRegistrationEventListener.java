@@ -23,5 +23,6 @@ public class SuccessfulRegistrationEventListener implements ApplicationListener<
 
         verificationTokenRepository.save(verificationToken);
 
+        //TODO:send email to verification
     }
 }

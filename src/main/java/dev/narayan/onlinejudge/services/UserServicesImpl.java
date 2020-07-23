@@ -81,6 +81,7 @@ public class UserServicesImpl implements UserService{
         else
         {
             verificationToken.updateToken();
+            //TODO: send email for verifcation
             return false;
         }
 
@@ -106,6 +107,7 @@ public class UserServicesImpl implements UserService{
             passwordResetToken.updateToken();
         }
         passwordResetTokenRepository.save(passwordResetToken);
+        //TODO:send email for password reset
 
     }
 
